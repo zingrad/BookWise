@@ -1,3 +1,8 @@
+<?php
+$url = '/bookwise/';
+require 'dados.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +21,11 @@
             <div class="font-bold text-xl tracking-wide">Book Wise</div>
 
             <ul class="flex space-x-4 font-bold">
-                <li class="text-teal-400"><a href="/">Explorar</a></li>
-                <li><a href="/meus-livros.php" class="hover:underline">Meus Livros</a></li>
+                <li class="text-teal-400"><a href="<?=$url?>">Explorar</a></li>
+                <li><a href="<?=$url?>meus-livros.php" class="hover:underline">Meus Livros</a></li>
             </ul>
             <ul>
-                <li><a href="/login.php" class="hover:underline">Fazer Login</a></li>
+                <li><a href="<?=$url?>login.php" class="hover:underline">Fazer Login</a></li>
             </ul>
         </nav>
     </header>
@@ -34,17 +39,19 @@
         </form>
 
 
-        <section class="space-y-4">
-            <!-- Livro -->
-            <div class="w-1/3 p-2 rounded border-stone-800 border-2 bg-stone-900">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <?php foreach($livros as $livro): ?>
+
+            <div class="p-2 rounded border-stone-800 border-2 bg-stone-900">
 
                 <div class="flex">
 
                     <img class="w-1/3" src="" alt="">
 
-                    <div>
-                        <h2 class="font-semibold text-">Titulo</h2>
-                        <div class="text-xs italic">Autor</div>
+                    <div class="space-y-3">
+                        <a href="<?=$url?>livro.php?id=<?=$livro['id']?>" class="font-semibold hover:underline"><?=$livro['titulo']?></a>
+                        <div class="text-xs italic"><?=$livro['autor']?></div>
                         <div class="text-xs italic">
                             <div>
                                 <i class="bi bi-star-fill text-yellow-500"></i>
@@ -60,11 +67,13 @@
 
                 </div>
 
-                <div class="text-sm">
-                    Descrição
+                <div class="text-sm mt-2">
+                <?=$livro['descricao']?>
                 </div>
 
             </div>
+
+            <?php endforeach; ?>
 
         </section>
 
