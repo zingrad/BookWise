@@ -1,4 +1,5 @@
 <?php 
+  $url = '/bookwise/';
     $livros = [
         ['id' => 1, 'titulo' => 'Senhor dos Anéis', 'autor' => 'J.R.R. Tolkien', 'descricao' => "Uma jornada épica pela Terra Média contra as forças do mal."],
         ['id' => 2, 'titulo' => '1984', 'autor' => 'George Orwell', 'descricao' => "Um futuro distópico onde um governo totalitário controla tudo."],
